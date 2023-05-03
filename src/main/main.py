@@ -15,10 +15,10 @@ def main():
     instance_operations = utils.instance_operations(sort_state)
 
     for instance in instance_operations:
+        print()
         print(f"{instance.date_visual()} {instance.description}\n"
               f"{instance.card_privacy()} -> {instance.check_privacy()}\n"
               f"{instance.amount} {instance.currency}")
-        print()
 
 
 if __name__ == '__main__':
