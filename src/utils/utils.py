@@ -1,8 +1,5 @@
 from datetime import datetime
-from os import path
 import json
-
-OPERATIONS = path.abspath('operations.json')
 
 
 def load_operations(operations_open):
