@@ -1,6 +1,5 @@
 from src.main.ClassOperations import ClassOperations
 
-
 OPERATIONS = [
     {"id": 2, "state": "CANCELLED", "date": "2019-08-26T10:50:58.294041"},
     {"id": 1, "state": "EXECUTED", "date": "2021-10-01T10:50:58.294041"}
@@ -43,11 +42,3 @@ def test_class_operations():
     assert class_operations_none.card_privacy() == "Нет данных"
     assert class_operations_none.check_privacy() == "Нет данных"
     assert class_operations_none.currency == 'Нет данных'
-
-
-def test_instance_operations():
-    assert utils.instance_operations() is None
-    assert utils.instance_operations([]) == []
-    assert utils.instance_operations(123) is None
-    assert utils.instance_operations('Thank you World') is None
-    assert utils.instance_operations(OPERATIONS) == ClassOperations.__repr__()

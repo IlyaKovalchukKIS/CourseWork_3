@@ -31,13 +31,11 @@ def sort_operation_date(operations_dict=None):
     :param operations_dict: cписок всех операций
     :return: отсортированный список по дате
     """
-    if len(operations_dict) >= 1:
-        try:
-            sort_by_date = sorted(operations_dict, key=key_sort_date, reverse=True)
-            return sort_by_date
-        except (TypeError, FileNotFoundError, OSError, AttributeError):
-            return
-    return
+    try:
+        sort_by_date = sorted(operations_dict, key=key_sort_date, reverse=True)
+        return sort_by_date
+    except (TypeError, FileNotFoundError, OSError, AttributeError):
+        return
 
 
 def sort_operation_state(operations_dict=None):
