@@ -58,18 +58,18 @@ def instance_operations(list_operations):
     :return: список экземпляров класса
     """
     instance_list = []
-    for index, operation in enumerate(list_operations):
+    for operation in list_operations:
         date = operation.get("date")
         description = operation.get('description')
         from_ = operation.get('from')
         to_ = operation.get('to')
         amount = operation.get('operationAmount').get('amount')
         currency = operation.get('operationAmount').get('currency')
-        instance_list.append({index + 1: ClassOperations(date,
-                                                         description,
-                                                         from_,
-                                                         to_,
-                                                         amount,
-                                                         currency)})
+        instance_list.append(ClassOperations(date,
+                                             description,
+                                             from_,
+                                             to_,
+                                             amount,
+                                             currency))
 
     return instance_list
