@@ -15,7 +15,10 @@ class ClassOperations:
         self.from_ = from_
         self.to_ = to_
         self.amount = amount
-        self.currency = currency.get('name')
+        if type(currency) is dict:
+            self.currency = currency.get('name')
+        else:
+            self.currency = "Нет данных"
 
     def __repr__(self):
         return f"ClassOperations:(\n{self.date} - дата перевода\n" \
@@ -26,11 +29,13 @@ class ClassOperations:
                f"{self.currency} - валюта перевода)"
 
     def date_visual(self):
+        """Приводит дату в эстетический вид"""
         years, month, day = self.date[:10].split("-")
         return f'{day}.{month}.{years}'
 
     def card_privacy(self):
-        if self.from_ is not None:
+        """Цензурит номер карты"""
+        if type(self.from_) is str:
             grouping = self.from_.split(' ')
             x = grouping[-1]
             privacy_card = x[:4] + ' ' + x[4:6] + ("*" * 2) + " " + ("*" * 4) + " " + x[-4:]
@@ -39,7 +44,8 @@ class ClassOperations:
             return "Нет данных"
 
     def check_privacy(self):
-        if self.to_ is not None:
+        """Цензурит номер счета"""
+        if type(self.to_) is str:
             grouping = self.to_.split(' ')
             x = grouping[-1]
             privacy_check = "**" + x[-4:]
