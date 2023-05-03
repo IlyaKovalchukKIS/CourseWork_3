@@ -13,7 +13,7 @@ def load_operations(operations_open=None):
             file = json.load(f)
             return file
     except (TypeError, FileNotFoundError, OSError, AttributeError):
-        return None
+        return
 
 
 def key_sort_date(operations_date=None):
@@ -23,7 +23,7 @@ def key_sort_date(operations_date=None):
     try:
         return datetime.strptime(operations_date.get('date', '2019-05-19T12:51:49.023880'), "%Y-%m-%dT%H:%M:%S.%f")
     except (TypeError, FileNotFoundError, OSError, AttributeError):
-        return None
+        return
 
 
 def sort_operation_date(operations_dict=None):
@@ -31,11 +31,13 @@ def sort_operation_date(operations_dict=None):
     :param operations_dict: cписок всех операций
     :return: отсортированный список по дате
     """
-    try:
-        sort_by_date = sorted(operations_dict, key=key_sort_date, reverse=True)
-        return sort_by_date
-    except (TypeError, FileNotFoundError, OSError, AttributeError):
-        return None
+    if len(operations_dict) >= 1:
+        try:
+            sort_by_date = sorted(operations_dict, key=key_sort_date, reverse=True)
+            return sort_by_date
+        except (TypeError, FileNotFoundError, OSError, AttributeError):
+            return
+    return
 
 
 def sort_operation_state(operations_dict=None):
@@ -47,7 +49,7 @@ def sort_operation_state(operations_dict=None):
         sort_by_executed = sorted(operations_dict, key=lambda x: x.get("state") == "EXECUTED", reverse=True)
         return sort_by_executed[:5]
     except (TypeError, FileNotFoundError, OSError, AttributeError):
-        return None
+        return
 
 
 def instance_operations(list_operations=None):
@@ -76,4 +78,4 @@ def instance_operations(list_operations=None):
         return instance_list
 
     except (TypeError, AttributeError):
-        return None
+        return
