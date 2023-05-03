@@ -30,9 +30,9 @@ def sort_operation_state(operations_dict):
 
 
 
-loading = load_operations(OPERATIONS)
-print(loading)
-sor_ = sort_operation_date(loading)
-print(sor_)
-print(sort_operation_state(sor_))
+# loading = load_operations(OPERATIONS)
+# print(loading)
+# sor_ = sort_operation_date(loading)
+# print(sor_)
+# print(sort_operation_state(sor_))
 
