@@ -26,10 +26,12 @@ class ClassOperations:
                f"{self.currency} - валюта перевода)"
 
     def date_visual(self):
+        """Приводит дату в эстетический вид"""
         years, month, day = self.date[:10].split("-")
         return f'{day}.{month}.{years}'
 
     def card_privacy(self):
+        """Цензурит номер карты"""
         if self.from_ is not None:
             grouping = self.from_.split(' ')
             x = grouping[-1]
@@ -39,6 +41,7 @@ class ClassOperations:
             return "Нет данных"
 
     def check_privacy(self):
+        """Цензурит номер счета"""
         if self.to_ is not None:
             grouping = self.to_.split(' ')
             x = grouping[-1]
