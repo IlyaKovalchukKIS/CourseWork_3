@@ -24,3 +24,7 @@ class ClassOperations:
                f"{self.to_} - куда произведен перевод\n" \
                f"{self.amount} - сумма перевода\n" \
                f"{self.currency} - валюта перевода)"
+
+    def date_visual(self):
+        years, month, day = self.date[:10].split("-")
+        return f'{day}.{month}.{years}'
