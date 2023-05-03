@@ -15,7 +15,7 @@ class ClassOperations:
         self.from_ = from_
         self.to_ = to_
         self.amount = amount
-        self.currency = currency
+        self.currency = currency.get('name')
 
     def __repr__(self):
         return f"ClassOperations:(\n{self.date} - дата перевода\n" \
@@ -28,3 +28,21 @@ class ClassOperations:
     def date_visual(self):
         years, month, day = self.date[:10].split("-")
         return f'{day}.{month}.{years}'
+
+    def card_privacy(self):
+        if self.from_ is not None:
+            grouping = self.from_.split(' ')
+            x = grouping[-1]
+            privacy_card = x[:4] + ' ' + x[4:6] + ("*" * 2) + " " + ("*" * 4) + " " + x[-4:]
+            return f"{' '.join(grouping[:-1])} {privacy_card}"
+        else:
+            return "Нет данных"
+
+    def check_privacy(self):
+        if self.to_ is not None:
+            grouping = self.to_.split(' ')
+            x = grouping[-1]
+            privacy_check = "**" + x[-4:]
+            return f"{' '.join(grouping[:-1])} {privacy_check}"
+        else:
+            return 'Нет данных'
