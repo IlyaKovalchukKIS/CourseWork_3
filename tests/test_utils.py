@@ -1,6 +1,5 @@
 from datetime import datetime
 
-from src.main.ClassOperations import ClassOperations
 from src.utils import utils
 from tests.test_ClassOperations import OPERATIONS, OPERATIONS_RESULT
 import pytest
