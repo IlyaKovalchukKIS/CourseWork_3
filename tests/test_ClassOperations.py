@@ -1,15 +1,5 @@
 from src.main.ClassOperations import ClassOperations
 
-OPERATIONS = [
-    {"id": 2, "state": "CANCELLED", "date": "2019-08-26T10:50:58.294041"},
-    {"id": 1, "state": "EXECUTED", "date": "2021-10-01T10:50:58.294041"}
-]
-
-OPERATIONS_RESULT = [
-    {"id": 1, "state": "EXECUTED", "date": "2021-10-01T10:50:58.294041"},
-    {"id": 2, "state": "CANCELLED", "date": "2019-08-26T10:50:58.294041"}
-]
-
 
 def test_class_operations():
     class_operations = ClassOperations(date="2019-08-26T10:50:58.294041",
