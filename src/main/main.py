@@ -4,8 +4,8 @@ from os import path
 OPERATIONS = path.join('../utils/operations.json')
 
 
-def main():
-    load_operations = utils.load_operations(OPERATIONS)
+def main(operations):
+    load_operations = utils.load_operations(operations)
     if load_operations is None:
         print('Операция недоступна')
         return
@@ -22,4 +22,4 @@ def main():
 
 
 if __name__ == '__main__':
-    main()
+    main(OPERATIONS)
