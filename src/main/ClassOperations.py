@@ -38,7 +38,8 @@ class ClassOperations:
         if type(self.from_) is str:
             grouping = self.from_.split(' ')
             x = grouping[-1]
-            privacy_card = x[:4] + ' ' + x[4:6] + ("*" * 2) + " " + ("*" * 4) + " " + x[-4:]
+            privacy_card = f"{x[:4]} {x[4:6]}** **** {x[-4:]}"
+            # privacy_card = x[:4] + ' ' + x[4:6] + ("*" * 2) + " " + ("*" * 4) + " " + x[-4:]
             return f"{' '.join(grouping[:-1])} {privacy_card}"
         else:
             return "Нет данных"
@@ -48,7 +49,8 @@ class ClassOperations:
         if type(self.to_) is str:
             grouping = self.to_.split(' ')
             x = grouping[-1]
-            privacy_check = "**" + x[-4:]
-            return f"{' '.join(grouping[:-1])} {privacy_check}"
+            # privacy_check = "**" + x[-4:]
+            # privacy_check = f"**{x[-4:]}"
+            return f"{' '.join(grouping[:-1])} **{x[-4:]}"
         else:
             return 'Нет данных'
